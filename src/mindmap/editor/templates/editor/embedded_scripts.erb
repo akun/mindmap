@@ -1,0 +1,42 @@
+<script>
+  {% include 'editor/require_js.erb' %}
+  function loadScripts(success, failure) {
+    requirejs.config({
+      shim: {
+          'jquery.mousewheel': ['jquery'],
+          'jquery.hammer': ['jquery'],
+          'jquery.hotkeys': ['jquery']
+      },
+      baseUrl: "/",
+      paths: {
+        "jquery": '<%= external_script_path "//mindmup.s3.amazonaws.com/lib/jquery-2.0.2.min" %>',
+        "underscore": '<%= external_script_path "//mindmup.s3.amazonaws.com/lib/underscore-1.4.4.min" %>',
+        "jquery.mousewheel": '<%= external_script_path "//mindmup.s3.amazonaws.com/lib/jquery.mousewheel-3.1.3" %>',
+        "color": '<%= external_script_path "//mindmup.s3.amazonaws.com/lib/color-0.4.1.min" %>',
+        "kinetic": '<%= external_script_path "//mindmup.s3.amazonaws.com/lib/kinetic-v4.5.4.min" %>',
+        "jquery.hammer": '<%= external_script_path "//mindmup.s3.amazonaws.com/lib/jquery.hammer.min" %>',
+        "jquery.hotkeys": '<%= external_script_path "//mindmup.s3.amazonaws.com/lib/jquery.hotkeys" %>'
+      },
+      waitSeconds: 120
+    });
+    requirejs(
+      ["jquery", "underscore"],
+      function () {
+        requirejs(
+          ["jquery.mousewheel", "color", "kinetic", "jquery.hammer", "jquery.hotkeys"],
+          function () {
+            requirejs(
+              [
+                "<%=settings.cache_prevention_key%>/mapjs-compiled",
+                "<%=settings.cache_prevention_key%>/s3-adapter",
+                "<%=settings.cache_prevention_key%>/file-system-map-source",
+                "<%=settings.cache_prevention_key%>/retriable-map-source-decorator"
+            ], success, failure);
+          },
+          failure
+        );
+      },
+      failure
+    );
+  }
+</script>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MindMup: Zero-Friction Free Online Mind Mapping</title>
+    <meta name="keywords" content="mind mapping, mind map, mindmap, mindmapping, free online mindmapping, free online mind mapping, mindmup" />
+    <meta name="description" content="Zero-friction, free online mind mapping. Opensource mindmapping software. The most productive online mind map canvas on the Web. Supports Freemind mindmap import/export." />
+    <link rel="shortcut icon" href="//<%=settings.s3_website%>/lib/img/favicon.ico" >
+    <link href="https://plus.google.com/u/0/communities/112831595986131146219" rel="publisher" />
+    <link href="http://blog.mindmup.com/feeds/posts/default" rel="alternate" type="application/rss+xml" title="RSS" />
+    <style>
+      html, body {
+        height: 100%;
+        overflow: hidden;
+      }
+      #container, #attachment {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        width:100%;
+        min-height: 100%;
+      }
+	  #rightmenu {
+		  position: fixed;
+		  top: 10px;
+		  right: 1px;
+		  background-color: rgba(200,200,200,0.5);
+		  border: 1px solid #0088cc;
+		  border-radius: 5px;
+		  padding: 4px 4px 4px 4px;
+		  width: 32px;
+
+	  }
+	  .button {
+		  background: url('http://mindmup.s3.amazonaws.com/lib/img/embed_buttons.png');
+		  background-repeat:no-repeat;
+		  width: 32px !important;
+		  height: 32px !important;
+		  display: block;
+		  margin-bottom: 3px;
+	  }
+	  .close {
+		background-position: 0 0;
+	  }
+	  .scaleUp {
+		background-position: -32px 0px;
+	  }
+	  .scaleDown {
+		background-position: -64px 0px;
+	  }
+	  .resetView {
+		background-position: -96px 0px;
+	  }
+	  .mindmup {
+		background-position: -128px 0px;
+	  }
+
+    </style>
+  </head>
+  <body>
+    <div id="container" class="map"></div>
+	<div id="rightmenu" style="display:none">
+		<a href="<%=settings.base_url%>map/<%=@mapid%>" target="_blank" class="button mindmup" title="View/Edit on MindMup"></a>
+		<a href="#" title="Back to map (Esc)" class="button close attachment" style="display:none"></a>
+		<a href="#" title="Zoom in (z)" class="button scaleUp map"></a>
+		<a href="#" title="Zoom out (Shift+z)" class="button scaleDown map"></a>
+		<a href="#" title="Re-center view (Esc)" class="button resetView map"></a>
+	</div>
+    <div id="attachment" class="attachment">
+    </div>
+  {% include 'editor/embedded_scripts.erb' %}
+  <script id="main">
+
+    var MM = MM || {},
+        _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '<%= settings.google_analytics_account %>']);
+
+    loadScripts(
+      function() {
+        var config = {
+              s3Url: 'http://<%= settings.s3_website %>/',
+              s3Folder: '<%= settings.s3_upload_folder %>/',
+              publishingConfigUrl: '',
+              baseUrl: '<%= settings.base_url%>',
+              proxyLoadUrl: '<%= settings.proxy_load_url %>',
+              renderImages: false,
+              mapId:'<%=@mapid%>'
+            },
+            activityLog = console,
+            s3Adapter = new MM.S3Adapter(config.s3Url, config.s3Folder, activityLog, config.publishingConfigUrl, config.baseUrl + config.proxyLoadUrl),
+            mapLoader = new MM.RetriableMapSourceDecorator(new MM.FileSystemMapSource(s3Adapter)),
+            mapModel = new MAPJS.MapModel(MAPJS.KineticMediator.layoutCalculator, [''], ['']);          
+          jQuery('#container').mapWidget(activityLog, mapModel, config.isTouch, config.renderImages);
+          jQuery('.close.attachment').click(function () {
+            jQuery('.attachment').hide();
+            jQuery('.map').show();
+          });
+		  jQuery('a.mindmup').click(function () {
+            _gaq.push(['_trackEvent','Embedded Map', 'Go to MindMup', config.mapId]);
+		  });
+          jQuery(document).keydown('Esc backspace', function (){            
+            jQuery('.attachment').hide();
+            jQuery('.map').show();
+          });
+		  jQuery('.attachment').hide();
+          mapModel.setEditingEnabled(false);
+
+          mapModel.addEventListener('attachmentOpened', function (nodeId, attachment) {
+            $('#attachment').html(attachment.content);
+            jQuery('.map').hide();
+            jQuery('.attachment').show();
+          });
+          _gaq.push(['_trackEvent','Embedded Map', 'View', config.mapId]);
+
+          mapLoader.loadMap(config.mapId).then(function (idea) {
+            mapModel.setIdea(idea);
+            _gaq.push(['_trackEvent','Embedded Map', 'Loaded', config.mapId]);
+          }, function (reason) {
+            _gaq.push(['_trackEvent','Embedded Map', 'Error - Load', reason]);
+          });
+		  var topPosition = Math.max(0, ($('#container').outerHeight() - 150)/2);
+		  jQuery('#rightmenu').css('top', topPosition).show().mapToolbarWidget(mapModel);
+      },
+      function (err) {
+        var d=document.createElement("div"),
+            c=document.createElement('div'),
+            tryToNotifyGoogleAnalytics=function(){
+              _gaq.push(['_trackEvent','Embedded Map','Error - Script Load', err && err.message]);
+            };
+
+        d.appendChild(document.createTextNode("Unfortunately, there was an error while loading the JavaScript files required by this page."+
+          " This might be due to a temporary network issue or a firewall blocking access to required scripts. "+
+          " Please try again later. " +
+          " If the problem persists, we'd appreciate if you could contact us at contact@mindmup.com"));
+        d.style.position='absolute'; d.style.top='30%'; d.style.left='40%'; d.style.width='20%'; d.style.backgroundColor='#773333'; d.style.color='white'; d.style.fontWeight='bold'; d.style.padding='20px'; d.style.border='3px solid black';
+        c.style.position='absolute'; c.style.top=0; c.style.left=0; c.style.width='100%'; c.style.height='100%'; c.style.minHeight='100%'; c.style.backgroundColor='#999999';
+        c.appendChild(d);
+        document.getElementsByTagName("body")[0].appendChild(c);
+        tryToNotifyGoogleAnalytics();
+      }
+    );
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  </body>
+</html>

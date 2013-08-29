@@ -1,0 +1,19 @@
+<div data-mm-role="share" class="modal hide fade" id="modalEmbedMap">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Embed this map</h3>
+	</div>
+	<div class="modal-body">
+    <p>Copy the HTML code below and paste in your web site.</p>
+
+		<textarea readonly>
+<a href="<%=settings.base_url%>map/MAPID" data-role="mindmup-embed" title="TITLE" data-width="90%" data-height="500" data-style="border:1px solid black;margin-bottom:5px;">TITLE on MindMup</a>
+<script async src="<%=settings.base_url%>external-embed.js"></script>
+  </textarea>
+  <p class="small">You can customise the look of the map frame by changing the data-width, data-height and data-style attributes.</p> 
+  <p class="small">Place the Script tag close to the end of the page to speed up loading. If you want to embed several maps, you only need to include one script tag.</p>
+	</div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal">Close</button>
+  </div>
+</div>

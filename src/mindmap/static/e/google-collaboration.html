@@ -1,0 +1,55 @@
+<div> <!-- needs div for easier child locators -->
+	<li class="dropdown" data-mm-role="top-menu">
+		<a data-category="Top Bar" data-event-type="Open Collaboration Menu" class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <i class="icon-group"></i><span class="hidden-narrow-screen">&nbsp;Collaboration&nbsp;<b class="caret"></b></span>
+	   </a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a data-category="Top Bar" data-event-type="Collaboration - Start" data-mm-role="start" data-mm-collab-visible="offline"><i class="icon-play" ></i>&nbsp;Start</a></li>
+			<li><a data-category="Top Bar" data-event-type="Collaboration - Show Collaborators" data-mm-role="show-collaborators" data-mm-collab-visible="online"><i class="icon-comments-alt" ></i>&nbsp;Who is online?</a></li>
+			<li><a data-category="Top Bar" data-event-type="Collaboration - Invite" data-mm-role="invite" data-mm-collab-visible="online"><i class="icon-group" ></i>&nbsp;Invite collaborators</a></li>
+			<li><a data-category="Top Bar" data-event-type="Collaboration - Join Existing" data-mm-role="join" data-mm-collab-visible="offline"><i class="icon-eye-open" ></i>&nbsp;Join an existing session</a></li>
+      <li><a data-category="Top Bar" data-event-type="Collaboration - Leave" data-mm-role="leave" data-mm-collab-visible="online"><i class="icon-eject" ></i>&nbsp;Leave current session</a></li>
+		</ul>
+	</li>
+	<div class='modal hide fade' data-mm-role='modal-start'>
+	  <div class='modal-header'>
+		<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+		<h3>Start a collaborative session</h3>
+	  </div>
+	  <div class='modal-body' >
+		  <p>Give your session a short descriptive name (eg Monday Impact Planning). The name will help
+		  your collaborators understand what they are joining, and also help you
+		  recognise this session later if you want to join again or retrieve results. 
+		  You will be able to invite collaborators in the next step.</p>
+		  <form>
+			  <div class="control-group">
+				<input type="text" name="session-name" placeholder="Collaborative map name" />
+			</div>
+		</form>
+	  </div>
+	  <div class='modal-footer'>
+		<a href='#' data-dismiss='modal' class='btn'>Close</a>
+		<a href='#' class='btn btn-primary' data-mm-role='start-session'><i class='icon-play'></i> Start</a>
+	  </div>
+	</div>
+	<div class='modal hide fade' data-mm-role='modal-collaborators'>
+	  <div class='modal-header'>
+		<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+		<h3>Online collaborators</h3>
+	  </div>
+	  <div class='modal-body' >
+		  <p>Click on a collaborator to follow on the screen</p>
+		  <ul class="nav nav-tabs nav-stacked" data-mm-role="collab-list">
+			  <li data-mm-role="template">
+			  <a data-mm-role="collaborator-select">
+				  <img data-mm-role="collaborator-photo" class="collab-photo" />
+				  <span data-mm-role="collaborator-name" ></span>&nbsp;
+				  <span data-mm-role="collaborator-notes" ></span></a>
+			  </li>
+		  </ul>
+	  </div>
+	  <div class='modal-footer'>
+		<a href='#' data-dismiss='modal' class='btn'>Close</a>
+	  </div>
+	</div>
+</div>

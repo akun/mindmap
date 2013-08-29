@@ -1,0 +1,19 @@
+.repo-h {
+	background-image: url('//mindmup.s3.amazonaws.com/lib/img/github-16.png');
+	padding-left: 16px;
+}
+#modalGithubOpen td a {
+	color: black;
+}
+#modalGithubCommit input {
+	width: 90%;
+}
+
+.visible-map-source-h {
+	display: none;
+}
+
+.map-source-h .visible-map-source-h {
+	display: inherit;
+}
+

@@ -1,0 +1,71 @@
+<div id='modalKeyActions' class='modal hide fade'>
+  <div class='modal-header'>
+    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'><i class="icon-remove"></i></button>
+    <h3>
+      <i class="logo">&nbsp;</i>
+      &nbsp;MindMup
+      <small class="hidden-phone">Zero-friction free online mind mapping</small>
+    </h3>
+  </div>
+  <div class='modal-body'>
+    <div class="carousel slide" data-interval="false" id="topbox">
+      <div class="carousel-inner">
+        <div class="active item">
+        <button data-target="#topbox" data-slide-to="1" class="btn btn-xlarge slide-control"><i class="icon-lightbulb icon-large"></i>&nbsp;Create a new map</button>
+        <button data-target="#topbox" data-slide-to="2" class="btn btn-xlarge"><i class="icon-cloud-upload icon-large"></i>&nbsp;Open a map</button>
+        <button data-target="#topbox" data-slide-to="3" class="btn btn-xlarge"><i class="icon-book icon-large"></i>&nbsp;Learn how to...</button>
+        <button data-target="#topbox" data-slide-to="4" class="btn btn-xlarge"><i class="icon-envelope icon-large"></i>&nbsp;Get in touch</button>
+        </div>
+        <div class="item">
+          <h1><i class="icon-lightbulb icon-large"></i>&nbsp;Create a new map</h1>
+          <ul data-mm-role="new-sources" class="nav nav-tabs nav-stacked">
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Create - s3" href="#m:new-a"><span class="repo repo-a"></span>Public online map to share with the world</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Create - google" href="#m:new-g"><span class="repo repo-g"></span>Private map on Google Drive (you control sharing)</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Create - browser" href="#m:new-o"><span class="repo repo-o"></span>Private, offline map in your browser</a></li>
+            <li><a class="slide-control" data-slide-to="0" data-target="#topbox"><span class="icon-arrow-left"></span>Main menu</a></li>
+          </ul>
+          <a data-category="Start Menu" data-event-type="Describe - storage" target="_blank" href="http://blog.mindmup.com/p/storage-options.html" class="pull-right">More information about storage options</a>
+        </div>
+
+        <div class="item">
+          <h1><i class="icon-cloud-upload icon-large"></i>&nbsp;Open a map</h1>
+          <ul data-mm-role="open-sources" class="nav nav-tabs nav-stacked">
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Import" data-target="#modalImport" data-toggle="modal"><span class="icon-upload"></span>Import a Freemind or MindMup file</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Open from Google" data-target="#modalGoogleOpen" data-toggle="modal"><span class="repo repo-g"></span>&nbsp;Open a Freemind or MindMup file from Google Drive</a>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Open from Browser Storage" data-target="#modalLocalStorageOpen" data-toggle="modal"><span class="icon-laptop"></span>&nbsp;Open from Browser Storage</a></li>
+            <li><a class="slide-control" data-slide-to="0" data-target="#topbox"><span class="icon-arrow-left"></span>Main menu</a></li>
+          </ul>
+        </div>
+
+
+        <div class="item">
+          <h1><i class="icon-book icon-large"></i>&nbsp;Learn how to...</h1>
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Learn - mouse" target="_blank" href="http://blog.mindmup.com/p/mouse-and-touch-operations.html"><span class="icon-hand-up"></span>Edit the map using touch or a mouse</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Learn - keyboard" target="_blank" href="http://blog.mindmup.com/p/keyboard-shortcuts.html"><span class="icon-keyboard"></span>Be more productive with keyboard shortcuts</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Learn - realtime" target="_blank" href="http://blog.mindmup.com/p/realtime-collaboration.html"><span class="icon-group"></span>Collaborate in real time with your colleagues</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Learn - screen-max" target="_blank" href="http://blog.mindmup.com/2013/03/go-full-screen-remove-all-distractions.html"><span class="icon-laptop"></span>Get the most out of your screen</a></li>
+            <li><a class="slide-control" data-slide-to="0" data-target="#topbox"><span class="icon-arrow-left"></span>Main menu</a></li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h1><i class="icon-envelope icon-large"></i>&nbsp;Get in touch</h1>
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Get in touch - email" data-target="#modalFeedback" data-toggle="modal"><span class="icon-envelope"></span>E-mail</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Get in touch - blog" target="_blank" href="http://blog.mindmup.com"><span class="icon-rss"></span>Blog/News</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Get in touch - vote" target="_blank" href="http://mindmup.uservoice.com"><span class="icon-bullhorn"></span>Vote on features</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Get in touch - facebook" target="_blank" href="http://facebook.com/mindmupapp"><span class="icon-facebook"></span>Get news through Facebook</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Get in touch - google+"  target="_blank" href="https://plus.google.com/u/0/communities/112831595986131146219"><span class="icon-google-plus"></span>Join the MindMup Google+ community</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Get in touch - twitter"  target="_blank" href="https://twitter.com/intent/user?screen_name=mindmup"><span class="icon-twitter"></span>Follow @mindmup on Twitter</a></li>
+            <li><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Get in touch - github"  target="_blank" href="http://github.com/mindmup"><span class="icon-github"></span>Source code on Github</a></li>
+            <li><a class="slide-control" data-slide-to="0" data-target="#topbox"><span class="icon-arrow-left"></span>Main menu</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>

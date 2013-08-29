@@ -1,0 +1,85 @@
+<div>
+    <li data-mm-role="save-link"><a data-mm-repository="h" rel="nofollow" data-category="Toolbar Click" data-event-type="Save to Github">GitHub</a></li>
+    <li data-mm-role="open-link"><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Open from Github" data-target="#modalGithubOpen" data-toggle="modal"><span class="repo repo-h"></span>&nbsp;Open from Github</a></li>
+    <li data-mm-role="new-link"><a data-mm-role="dismiss-modal" data-category="Start Menu" data-event-type="Create - github" href="#m:new-h"><span class="repo repo-h"></span>Online map stored on GitHub</a></li>
+  <div data-mm-role="sharelinks">
+      <li class="visible-map-source-h"><a data-target="#modalShareEmail" data-toggle="modal" data-category='Top Bar' data-event-type='Share Email'><i class="icon-envelope"></i>&nbsp;by e-mail</a></li>
+      <li class="visible-map-source-h"><a data-mm-role="share" data-mm-target="twitter"  data-category='Top Bar' data-event-type='Share Twitter'><i class="icon-twitter"></i>&nbsp;on Twitter</a></li>
+      <li class="visible-map-source-h"><a data-mm-role="share" data-mm-target="facebook" data-category='Top Bar' data-event-type='Share Facebook'><i class="icon-facebook"></i>&nbsp;on Facebook</a></li>
+      <li class="visible-map-source-h" rel='tooltip' data-title='Click to copy'><input type='text' style="margin-left:25px" class='hide span2 noglow' style="cursor:pointer" data-mm-role='short-url' ></input></li>
+      <li class="visible-map-source-h" data-mm-role="save"><a data-mm-repository="a">Move this map to MindMup to embed it</a></li>
+  </div>
+  <div class="modal hide fade" id='modalGithubCommit'>
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Commit to GitHub</h3>
+    </div>
+    <div class="modal-body">
+      <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label">Commit message: </label>
+        <div class="controls">
+          <input type="text">
+        </div>
+      </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a data-dismiss="modal" data-mm-role="commit" class="btn btn-primary">Commit</a>
+      <a data-dismiss="modal" class="btn">Close</a>
+    </div>
+  </div>
+  <div id="modalGithubOpen" class="modal hide fade">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3 data-mm-role="dialog-title">Open a file from Github</h3>
+    </div>
+    <div class="modal-body">
+      <form class="form-horizontal">
+        <div class="input-append">
+          <input type="text" data-mm-role="owner" name="user" class="span2"/>
+          <div class="btn-group">
+            <button class="btn dropdown-toggle" data-toggle="dropdown" data-mm-role="owner-search">
+              <i class="icon-spinner icon-spin"></i>User / Org&nbsp;<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" data-mm-role="owner-list"></ul>
+          </div>
+        </div>
+
+      </form>
+      <div data-mm-role="status"></div>
+
+      <table class="table table-striped table-condensed">
+        <thead>
+        <tr>
+          <th><span data-mm-role="current-location"></span>
+          <span class="input-append" data-mm-role="new-file">
+            <input placeholder="New File Name" type="text" name="newFile" class="span2"/>
+            <button class="btn" type="button">Create new file</button>
+          </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr data-mm-role="template" data-mm-type="dir">
+        <td ><a href="#" data-mm-role="dir-link"><i class="icon-folder-open-alt"></i>&nbsp;<span data-mm-role="dir-name"></span></a></td>
+      </tr>
+      <tr data-mm-role="template" data-mm-type="file">
+        <td><a href="#" data-mm-role="file-link"><i class="icon-file-alt"></i>&nbsp;<span data-mm-role="file-name"></span></a></td>
+      </tr>
+      <tr data-mm-role="template" data-mm-type="repo">
+        <td ><a href="#" data-mm-role="repo-link"><i class="icon-github"></i>&nbsp;<span data-mm-role="repo-name"></span></a></td>
+        <td>
+          <button class="btn" data-mm-role="branch-search">
+            <i class="icon-spinner icon-spin"></i> <span data-mm-role="repo-default-branch"></span>&nbsp;<span class="caret"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="modal-footer">
+      <a href="#" data-dismiss="modal" class="btn">Close</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<html>
+  <body>
+    <script>
+      window.opener.MMGithubCallBack({github_token: '<%=response["access_token"]%>', github_error: '<%=response["error"]%>'});
+      window.close();
+    </script>
+  </body>
+</html>
+

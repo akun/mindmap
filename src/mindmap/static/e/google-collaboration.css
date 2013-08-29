@@ -1,0 +1,20 @@
+.repo-c {
+	background-image: url('//mindmup.s3.amazonaws.com/lib/img/repo-c.png');
+	background-repeat: no-repeat;
+	background-position:left center;
+}
+img.collab-photo {
+	width:20px;
+	height:20px;
+	float:left;
+	padding-right:10px;
+}
+
+.visible-map-source-c {
+	display: none;
+}
+
+.map-source-c .visible-map-source-c {
+	display: inherit;
+}
+

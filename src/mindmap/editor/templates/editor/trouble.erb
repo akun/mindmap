@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    Your browser is detected as <%=browser.body_class %><br/>
+    Cache prevention key is <%=settings.cache_prevention_key %><br/>
+    Online status is <%=settings.online %><br/>
+    Last news item is <%=settings.last_news_id%><br/>
+    <script>
+      window.hasErrors;
+      window.onerror = function (a, b, c) {
+        console.log(a, b, c);
+        window.hasErrors = true;
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(['Script error', a, b, c].join('; ')));
+        document.getElementsByTagName('body')[0].appendChild(div);
+      }
+    </script>
+    {% include 'editor/scripts.erb' %}
+    <script>
+      requirejs.onError = function (err) {
+        console.log(err.requireType);
+        if (err.requireType === 'timeout') {
+          console.log('modules: ' + err.requireModules);
+        }
+      throw err;
+      };
+      loadScripts(
+        function () {
+          if (!window.hasErrors) {
+            document.getElementsByTagName('body')[0].appendChild(document.createTextNode('Success!'));
+          }
+        },
+        function (err) {
+          console.error(err);
+          var div = document.createElement('div');
+          div.appendChild(document.createTextNode(err.message));
+          document.getElementsByTagName('body')[0].appendChild(div);
+          // var i,
+          //   errorScripts = ScriptHelper.errorScripts,
+          //   failedScripts = ScriptHelper.failedScripts(),
+          //   showScript = function (label, url) {
+          //     var div, a;
+          //     a = document.createElement('a');
+          //     a.href = url;
+          //     a.appendChild(document.createTextNode(label + url));
+          //     div = document.createElement('div');
+          //     div.appendChild(a);
+          //     document.getElementsByTagName('body')[0].appendChild(div);
+          // };
+          // for (i = 0; i < errorScripts.length; i += 1) {
+          // showScript('error: ', errorScripts[i]);
+          // }
+          // for (i = 0; i < failedScripts.length; i += 1) {
+          // showScript('failed: ', failedScripts[i]);
+          // }
+          // document.getElementsByTagName('body')[0].appendChild(document.createTextNode('Failed! (retries left='+ScriptHelper.loadWaitRetry+')'));
+          // };
+      });
+    </script>
+  </body>
+</html>

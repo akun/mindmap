@@ -1,0 +1,80 @@
+<div> <!-- needs div for easier child locators -->
+	<li class="dropdown progress-top-menu" data-mm-role="top-menu">
+		<a data-category="Top Bar" data-event-type="Open Progress Menu" class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <i class="icon-dashboard"></i><span class="hidden-narrow-screen">&nbsp;Progress&nbsp;<b class="caret"></b></span>
+	   </a>
+		<ul class="dropdown-menu" role="menu" data-mm-role="status-list">
+			<li><a data-category="Top Bar" data-event-type="Progress - Start - Tasks" data-mm-role="start" data-mm-progress-visible="inactive" data-mm-progress-type="tasks"><i class="icon-tasks"></i>&nbsp;Generic Tasks</a></li>
+			<li><a data-category="Top Bar" data-event-type="Progress - Start - Testing" data-mm-role="start" data-mm-progress-visible="inactive" data-mm-progress-type="testing"><i class="icon-check"></i>&nbsp;Testing</a></li>
+			<li data-mm-role="status-template">
+				<a data-mm-role="set-status">
+					<div data-mm-role="status-color" class="progress-color">&nbsp;</div>&nbsp;
+					<span data-mm-role="status-name"></span>
+				</a>
+			</li>
+			<li class="divider"  data-mm-progress-visible="active"></li>
+			<li><a data-category="Top Bar" data-event-type="Progress - Detach" data-mm-role="toggle-toolbar" data-mm-progress-visible="active"><i class="icon-food" ></i>&nbsp;Floating legend/toolbar</a></li>
+			<li><a data-category="Top Bar" data-event-type="Progress - Clear" data-mm-role="clear" data-mm-progress-visible="active"><i class="icon-eraser" ></i>&nbsp;Reset progress on this map</a></li>
+			<li><a data-category="Top Bar" data-event-type="Progress - Deactivate" data-mm-role="deactivate" data-mm-progress-visible="active"><i class="icon-eject" ></i>&nbsp;Deactivate for this map</a></li>
+			<li><a data-category="Top Bar" data-event-type="Progress - Configure" data-toggle="modal" data-target="#progressEditModal"><i class="icon-cog" ></i>&nbsp;
+				<span data-mm-progress-visible="active">Configure</span><span data-mm-progress-visible="inactive">Custom</span> statuses</a></li>
+		</ul>
+	</li>
+  <div class='well span3 progress-toolbar' data-mm-role="floating-toolbar">
+    <div class="progress-toolbar-header">
+		<button class="close pull-right" data-event-type="Expand/Collapse" data-title="Convert to menu" data-mm-role="toggle-toolbar"
+			data-placement="left" rel="tooltip" data-original-title="" title=""><i class="toggle icon-resize-small"></i></button>
+    <h3 class="icon-dashboard">&nbsp;Progress</h3>
+    </div>
+    <div class="btn-group" data-mm-progress-visible="active">
+      <button data-title="Reset progress for this map" rel="tooltip" data-category="Progress Toolbar" data-event-type="Progress - Clear" data-mm-role="clear" data-mm-progress-visible="active" class="btn"><i class="icon-eraser" ></i></button>
+      <button data-title="Deactivate for this map" rel="tooltip" data-category="Progress Toolbar" data-event-type="Progress - Deactivate" data-mm-role="deactivate" data-mm-progress-visible="active" class="btn"><i class="icon-eject" ></i></button>
+	  <button data-title="Configure statuses" rel="tooltip" data-category="Progress Toolbar" data-event-type="Progress - Configure" data-toggle="modal" data-target="#progressEditModal" data-mm-progress-visible="active" class="btn"><i class="icon-cog" ></i></button>
+    </div>
+    <div class="btn-group" data-mm-progress-visible="inactive">
+				  <button class="btn btn-small dropdown-toggle" data-toggle="dropdown" data-category="Progress Toolbar" data-event-type="Open">Activate for this map &nbsp;<span class="caret"></span></button>
+				  <ul class="dropdown-menu">
+            <li><a data-category="Progress Toolbar" data-event-type="Progress - Start - Tasks" data-mm-role="start" data-mm-progress-visible="inactive" data-mm-progress-type="tasks"><i class="icon-tasks"></i>&nbsp;Generic Tasks</a></li>
+            <li><a data-category="Progress Toolbar" data-event-type="Progress - Start - Testing" data-mm-role="start" data-mm-progress-visible="inactive" data-mm-progress-type="testing"><i class="icon-check"></i>&nbsp;Testing</a></li>
+			<li><a data-category="Progress Toolbar" data-event-type="Progress - Configure" data-toggle="modal" data-target="#progressEditModal"><i class="icon-cog" ></i>&nbsp;Custom</a></li>
+				  </ul>
+    </div>
+		<ul class="nav nav-tabs nav-stacked" data-mm-role="status-list">
+			<li data-mm-role="status-template">
+				<a data-mm-role="set-status">
+					<div data-mm-role="status-color" class="progress-color">&nbsp;</div>&nbsp;
+					<span data-mm-role="status-name"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class='modal hide fade' data-mm-role='modal' id="progressEditModal">
+	  <div class='modal-header'>
+		<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+		<h3>Configure statuses</h3>
+	  </div>
+	  <div class='modal-body' >
+		<table class="table table-striped table-condensed" >
+			<thead>
+				<tr><th>Description</th><th>Color</th><th>Priority</th><th>Delete</th></tr>
+			</thead>
+			<tbody data-mm-role="status-list">
+				<tr data-mm-role="status-template" data-mm-new-role="progress">
+					<td data-mm-role="status-name" data-mm-editable></td>
+					<td><input class="hide" data-mm-role="status-color" data-mm-color-picker></input></td>
+					<td data-mm-role="status-priority" data-mm-editable></td>
+					<td>
+						<a data-mm-role="remove" class="btn btn-small"><i class="icon-remove-sign"></i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
+	  <div class='modal-footer'>
+		  <a href="http://blog.mindmup.com/p/monitoring-progress.html" target="_blank" class="pull-left">Learn how to configure</a>
+		  <a class='btn' data-mm-role='append'><i class="icon-plus-sign"></i>&nbsp;Add new</a>
+		<a href='#' data-dismiss='modal' class='btn btn-primary' data-mm-role="save">Save</a>
+		<a href='#' data-dismiss='modal' class='btn'>Cancel</a>
+	  </div>
+	</div>
+</div>

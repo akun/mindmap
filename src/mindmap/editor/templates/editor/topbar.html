@@ -1,0 +1,165 @@
+<div id="topbar" class="navbar navbar-fixed-top navbar">
+  <div class="navbar-inner">
+    <div>
+      <ul class="nav pull-left" id="mainMenu">
+        <li><a id="logo-img" data-toggle="modal" data-target="#modalKeyActions" data-placement="bottom" href="#" data-title="Show start menu again" rel="tooltip" data-category="Top Bar" data-event-type="Logo">&nbsp;</a>
+        </li>
+        <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-category="Top Bar" data-event-type="Open Bookmarks">File</a>
+          <ul class="dropdown-menu" role="menu" id="listBookmarks">
+            <li class="template" style="display:none"><a data-category="Top Bar" data-event-type="Bookmark click" class="repo"><button data-mm-role='bookmark-delete' class='btn-inline pull-right icon-remove' rel='tooltip' data-title='Remove bookmark'></button></a></li>
+
+            <li> <a href="#m:new" data-category="Top Bar" data-event-type="Create a Map"><i class="icon-lightbulb"></i>&nbsp;New&nbsp;Map</a> </li>
+
+            <li class="dropdown-submenu">
+            <a href="#"><i class="icon-cloud-upload"></i>&nbsp;Open/Import</a>
+            <ul data-mm-role="open-sources" class="dropdown-menu" role="menu">
+              <li  class="hidden-touch">
+                <a data-event-type="Import" data-category="Top Bar" data-target="#modalImport" data-toggle="modal"><i class="icon-upload"></i>&nbsp;From a local drive</a>
+              </li>
+              <li>
+                <a data-event-type="Open from Google" data-category="Top Bar" data-target="#modalGoogleOpen" data-toggle="modal"><i class="icon-cloud-upload"></i>&nbsp;From Google Drive</a>
+              </li>
+              <li>
+                <a data-event-type="Open from Browser Storage" data-category="Top Bar" data-target="#modalLocalStorageOpen" data-toggle="modal"><i class="icon-laptop"></i>&nbsp;From Browser Storage</a>
+            </li>
+            </ul>
+            </li>
+            <li class="divider hidden-touch"></li>
+            <li class="hidden-map-changed disabled">
+            <a><i class="icon-save"></i>&nbsp;Save</a>
+            </li>
+            <li data-mm-role="save" class="visible-map-changed">
+              <a data-mm-role="publish" data-category="Top Bar" data-event-type="Save Map"><span data-mm-role="currentrepo" class="repo repo-a"></span>&nbsp;Save</a>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#"><i class="icon-save"></i>&nbsp;Save As</a>
+              <ul data-mm-role="save" class="dropdown-menu" role="menu">
+                <li><a data-mm-repository='a' href="#" data-category="Top Bar" data-event-type="Save to MindMup">MindMup</a></li>
+                <li><a data-mm-repository='g' href="#" data-category="Top Bar" data-event-type="Save to Google Drive">Google&nbsp;Drive</a></li>
+                <li><a data-mm-repository='o' href="#" data-category="Top Bar" data-event-type="Save to Browser Storage">Browser&nbsp;Storage</a></li>
+              </ul>
+            </li>
+            <li class="hidden-touch dropdown-submenu">
+              <a href="#"><i class="icon-download-alt"></i>&nbsp;Export Map</a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a rel="nofollow" data-mm-role="remote-export" data-mm-target="#formExport" data-mm-format="mup"  data-category="Top Bar" data-event-type="Export MindMup">MindMup</a> </li>
+                <li><a rel="nofollow" data-mm-role="remote-export" data-mm-target="#formExport" data-mm-format="mm"   data-category="Top Bar" data-event-type="Export FreeMind">FreeMind</a> </li>
+                <li><a rel="nofollow" data-mm-role='remote-export' data-mm-target="#formExport" data-mm-format="png"  data-category="Top Bar" data-event-type="Export Image">Image (PNG)</a> </li>
+                <li><a rel="nofollow" data-mm-role="remote-export" data-mm-target="#formExport" data-mm-format="html" data-category="Top Bar" data-event-type="Export Html">HTML</a> </li>
+                <li><a rel="nofollow" data-mm-role="remote-export" data-mm-target="#formExport" data-mm-format="txt"  data-category="Top Bar" data-event-type="Export CSV">Text (tab separated)</a> </li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#"><i class="icon-share-alt"></i>&nbsp;Share Map</a>
+              <ul class="dropdown-menu" role="menu" id="sharelinks" data-mm-role="sharelinks">
+                <li class="visible-map-source-a hidden-map-changed"><a data-target="#modalEmbedMap" data-toggle="modal" data-category='Top Bar' data-event-type='Embed this map'><i class="icon-code"></i>&nbsp;Embed this map</a></li>
+                <li class="visible-map-source-a hidden-map-changed"><a data-target="#modalShareEmail" data-toggle="modal" data-category='Top Bar' data-event-type='Share Email'><i class="icon-envelope"></i>&nbsp;by e-mail</a></li>
+                <li class="visible-map-source-a hidden-map-changed"><a data-mm-role="share" data-mm-target="twitter"  data-category='Top Bar' data-event-type='Share Twitter'><i class="icon-twitter"></i>&nbsp;on Twitter</a></li>
+                <li class="visible-map-source-a hidden-map-changed"><a data-mm-role="share" data-mm-target="facebook" data-category='Top Bar' data-event-type='Share Facebook'><i class="icon-facebook"></i>&nbsp;on Facebook</a></li>
+                <li class="visible-map-source-a hidden-map-changed" rel='tooltip' data-title='Click to copy'><input type='text' style="margin-left:25px" class='hide span2 noglow pull-right' style="cursor:pointer" data-mm-role='short-url' ></input></li>
+                <li class="visible-map-source-a visible-map-changed disabled"><a>Save this map first to share it</a></li>
+                <li class="visible-map-source-g"><a class="repo repo-g" href="#" data-mm-role="share-google" data-category="Top Bar" data-event-type="Share Google">Share via Google Drive</a></li>
+                <li class="visible-map-source-g" data-mm-role="save"><a data-mm-repository="a">Move this map to MindMup to embed it</a></li>
+                <li class="visible-map-source-o" data-mm-role="save"><a data-mm-repository="a">Move this map online to share or embed it</a></li>
+                <li class="visible-map-source-n" data-mm-role="save"><a data-mm-role="publish">Save this map to share or embed it</a></li>
+              </ul>
+            </li>
+            <li>
+              <a data-event-type="Pin" data-mm-role="bookmark-pin" data-category="Top Bar"><i class="icon-pushpin"></i>&nbsp;Bookmark this map</a>
+            </li>
+            <li class="divider"  />
+            <li data-mm-role="bookmark"><a>Save a map and it will appear here</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-category="Top Bar" data-event-type="Tools">Edit</a>
+          <ul class="dropdown-menu" id="nodeContextMenu" role="menu">
+            <li rel="tooltip" data-title="Ctrl+z"><a data-category="Top Bar" data-event-type="Undo" class="undo"><i class="icon-undo"></i>&nbsp;Undo</a></li>
+            <li class="hidden-phone-landscape" rel="tooltip" data-title="Ctrl+Shift+z"><a data-category="Top Bar" data-event-type="Redo" class="redo"><i class="icon-repeat"></i>&nbsp;Redo</a></li>
+
+            <li class="divider hidden-phone"></li>
+
+            <li class="hidden-phone-landscape" rel="tooltip" data-mm-context-menu="Clipboard" data-title="Ctrl+c"><a data-category="Top Bar" data-event-type="Copy" class="copy"><i class="icon-copy"></i>&nbsp;Copy</a></li>
+            <li class="hidden-phone-landscape" rel="tooltip" data-mm-context-menu="Clipboard" data-title="Ctrl+x"><a data-category="Top Bar" data-event-type="Cut" class="cut"><i class="icon-cut"></i>&nbsp;Cut</a></li>
+            <li class="hidden-phone-landscape" rel="tooltip" data-mm-context-menu="Clipboard" data-title="Ctrl+v"><a data-category="Top Bar" data-event-type="Paste" class="paste"><i class="icon-paste"></i>&nbsp;Paste</a></li>
+            <li class="hidden-phone" rel="tooltip" data-mm-context-menu="Select" data-title="&#123;"><a data-category="Top Bar" data-event-type="Select subtree" class="activateNodeAndChildren"><i class="icon-sitemap"></i>&nbsp;Select&nbsp;subtree</a></li>
+            <li class="hidden-phone" rel="tooltip" data-mm-context-menu="Select" data-title="["><a data-category="Top Bar" data-event-type="Select all children" class="activateChildren"><i class="icon-th-list"></i>&nbsp;Select&nbsp;all&nbsp;children</a></li>
+            <li class="hidden-phone" rel="tooltip" data-mm-context-menu="Select" data-title="="><a data-category="Top Bar" data-event-type="Select all siblings" class="activateSiblingNodes"><i class="icon-ellipsis-vertical"></i>&nbsp;Select&nbsp;all&nbsp;siblings</a></li>
+
+            <li class="divider hidden-phone"></li>
+
+            <li rel="tooltip" data-mm-context-menu="Insert" data-title="Tab"><a data-category="Top Bar" data-event-type="Add idea" class="addSubIdea"><i class="icon-signout" ></i>&nbsp;Add Child</a></li>
+            <li class="hidden-phone-landscape" rel="tooltip" data-mm-context-menu="Insert" data-title="Enter"><a data-category="Top Bar" data-event-type="Insert Sibling" class="addSiblingIdea"><i class="icon-download-alt" ></i>&nbsp;Add Sibling</a></li>
+            <li class="hidden-phone-landscape" data-mm-context-menu="Insert" rel="tooltip" data-title="Shift+Tab"><a data-category="Top Bar" data-event-type="Insert Intermediate" class="insertIntermediate"><i class="icon-signin" ></i>&nbsp;Add Parent</a></li>
+            <li rel="tooltip" data-mm-context-menu data-title="Backspace"><a data-category="Top Bar" data-event-type="Delete idea" class="removeSubIdea"><i class="icon-remove"></i>&nbsp;Delete</a></li>
+
+            <li class="divider hidden-phone"></li>
+
+            <li rel="tooltip" data-mm-context-menu data-title="Spacebar"><a data-category="Top Bar" data-event-type="Edit idea" class="editNode"><i class="icon-pencil"></i>&nbsp;Edit node text</a></li>
+            <li rel="tooltip" data-mm-context-menu data-title="Shift+Spacebar"><a data-category="Top Bar" data-event-type="Node Color"><input type="hidden" data-mm-target-property='background' class="updateStyle"></input>&nbsp;Node color</a></li>
+            <li rel="tooltip" data-mm-context-menu data-title="A"><a data-category="Top Bar" data-event-type="Open Attachment" class="openAttachment"><i class="icon-paper-clip"></i>&nbsp;Node Attachment</a></li>
+            <li rel="tooltip" data-mm-context-menu data-title="Alt+click"><a data-category="Top Bar" data-event-type="Add link" class="toggleAddLinkMode"><i class="icon-resize-horizontal"></i>&nbsp;Connect</a></li>
+            <li rel="tooltip" data-mm-context-menu data-title="/ or Shift+Up"><a data-category="Top Bar" data-event-type="Collapse idea" class="toggleCollapse"><i class="icon-leaf"></i>&nbsp;Expand/collapse</a></li>
+
+          </ul>
+        </li>
+        <li class="dropdown hidden-narrow-screen">
+
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-category="Top Bar" data-event-type="View">Share</a>
+          <ul class="dropdown-menu" role="menu" data-mm-clone="#sharelinks">
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-category="Top Bar" data-event-type="View">View</a>
+          <ul class="dropdown-menu" role="menu">
+            <li rel="tooltip" data-title="z"><a data-category="Top Bar" data-event-type="Zoom in" class="scaleUp"><i class="icon-zoom-in"></i>&nbsp;Zoom in</a></li>
+            <li rel="tooltip" data-title="Shift+z"><a data-category="Top Bar" data-event-type="Zoom out" class="scaleDown"><i class="icon-zoom-out"></i>&nbsp;Zoom out</a></li>
+            <li rel="tooltip" data-title="Esc or 0"><a data-category="Top Bar" data-event-type="Zoom reset" class="resetView"><i class="icon-circle-blank"></i>&nbsp;Re-center view</a></li>
+
+            <li class="divider hidden-touch"></li>
+
+            <li class="hidden-touch" rel="tooltip" data-title="Ctrl+b"><a data-mm-target="body" data-mm-role="toggle-class" data-mm-class="collapsed-toolbar"><i class="icon-food"></i>&nbsp;<span class="visible-collapsed-toolbar">Show</span><span class="hidden-collapsed-toolbar">Hide</span>&nbsp;toolbar</a></li>
+
+            <li class="hidden-touch" rel="tooltip" data-title="Ctrl+shift+b"><a data-mm-target="body" data-mm-role="toggle-class" data-mm-class="hidden-topbar" data-mm-key="ctrl+shift+b meta+shift+b"><i class="icon-list-alt"></i>&nbsp;
+              <span class="topbar-autohide">Auto Hide</span><span class="topbar-fixed">Always show</span>&nbsp;menu</a></li>
+
+            <li class="hidden-touch" rel="tooltip"><a href="http://blog.mindmup.com/p/keyboard-shortcuts.html" target="_blank"><i class="icon-keyboard"></i>&nbsp;Show&nbsp;Hotkeys</a></li>
+          </ul>
+        </li>
+        <li class="hidden-phone-portrait"><a data-toggle="modal" data-target="#modalExtensions" href="#" data-title="Extensions" data-category="Top Bar" data-event-type="Extensions">Extensions</a></li>
+
+      </ul>
+
+      <ul class="nav pull-right">
+        <li data-mm-role="save" class="pull-left btn-group">
+          <button class="btn btn-primary" data-mm-role="publish" data-category="Top Bar" data-event-type="Save Map">Save</button>
+          <button class="btn dropdown-toggle" data-toggle='dropdown'><span data-mm-role='currentrepo' class='repo repo-a'>&nbsp;</span><b class="caret"></b></button>
+          <ul class="dropdown-menu">
+            <li><a data-mm-repository='a' rel="nofollow" href="#" data-category="Top Bar" data-event-type="Save to MindMup">MindMup</a></li>
+            <li><a data-mm-repository='g' rel="nofollow" href="#" data-category="Top Bar" data-event-type="Save to Google Drive">Google&nbsp;Drive</a></li>
+            <li><a data-mm-repository='o' rel="nofollow" href="#" data-category="Top Bar" data-event-type="Save to Browser Storage">Browser&nbsp;Storage</a></li>
+          </ul>
+          </li>
+
+        <li class="dropdown hidden-phone-portrait">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-category="About" data-event-type="Open"><i class="icon-info-sign"></i></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li> <a href="#" class="menuAbout" data-target="#modalAbout" data-toggle="modal" data-category="About" data-event-type="What is MindMup"><i class="icon-info"></i>&nbsp;What is MindMup</a> </li>
+            <li> <a target="_blank" data-category="About" href="http://mindmup.uservoice.com/" data-event-type="Vote on features"><i class="icon-bullhorn"></i>&nbsp;Vote on features</a> </li>
+            <li> <a href="#" class="menuterms" data-target="#modalTerms" data-toggle="modal" data-category="About" data-event-type="Legal info"><i class="icon-legal"></i>&nbsp;Legal info</a> </li>
+            <li> <a href="http://blog.mindmup.com" target="_blank" data-category="About" data-event-type="News/Blog"><i class="icon-rss"></i>&nbsp;News/Blog</a> </li>
+            <li> <a href="http://github.com/mindmup" target="_blank" data-category="About" data-event-type="Source Code"><i class="icon-github-sign"></i>&nbsp;Source Code</a> </li>
+            <li> <a href="#" id="menuFeedback" data-target="#modalFeedback" data-toggle="modal" data-category="Feedback" data-event-type="Open" data-label="topbar"><i class="icon-envelope"></i>&nbsp;Talk to Us</a> </li>
+          </ul>
+        </li>
+        <li class="hidden-narrow-screen">
+          <a rel="tooltip" data-title="Get news on Facebook" data-placement="bottom" data-category="Top Bar" data-event-type="Get in touch - facebook" target="_blank" href="http://facebook.com/mindmupapp" class="social"><i class="icon-facebook-sign"></i></a>
+          <a rel="tooltip" data-title="Get news on Twitter" data-placement="bottom" data-category="Top Bar" data-event-type="Get in touch - twitter"  target="_blank" href="https://twitter.com/intent/user?screen_name=mindmup" class="social"><i class="icon-twitter-sign"></i></a>
+          <a rel="tooltip" data-title="Get news on Google+" data-placement="bottom" data-category="Top Bar" data-event-type="Get in touch - google+"  target="_blank" href="https://plus.google.com/u/0/communities/112831595986131146219" class="social"><i class="icon-google-plus-sign"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  {% include 'editor/welcome_message.html' %}
+</div>

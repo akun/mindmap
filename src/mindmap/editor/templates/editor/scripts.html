@@ -1,0 +1,54 @@
+{% load staticfiles %}
+{% load editor_extras %}
+
+<script>
+  {% include 'editor/require_js.erb' %}
+  function loadScripts(success, failure) {
+    requirejs.config({
+      shim: {
+          'bootstrap': ['jquery'],
+          'jquery-ui': ['jquery'],
+          'jquery.mousewheel': ['jquery'],
+          'jquery.colorPicker': ['jquery'],
+          'jquery.hammer': ['jquery'],
+          'jquery.hotkeys': ['jquery']
+      },
+      baseUrl: "/",
+      paths: {
+        "jquery": "{% static 'offline/mindmup.s3.amazonaws.com/lib/jquery-2.0.2.min' %}",
+        "underscore": "{% static 'offline/mindmup.s3.amazonaws.com/lib/underscore-1.4.4.min' %}",
+        "bootstrap": "{% static 'offline/mindmup.s3.amazonaws.com/lib/bootstrap-2.3.1.min' %}",
+        "jquery-ui": "{% static 'offline/mindmup.s3.amazonaws.com/lib/jquery-ui-1.10.0.custom.min' %}",
+        "jquery.mousewheel": "{% static 'offline/mindmup.s3.amazonaws.com/lib/jquery.mousewheel-3.1.3' %}",
+        "color": "{% static 'offline/mindmup.s3.amazonaws.com/lib/color-0.4.1.min' %}",
+        "jquery.colorPicker": "{% static 'offline/mindmup.s3.amazonaws.com/lib/jquery.colorPicker.min' %}",
+        "kinetic": "{% static 'offline/mindmup.s3.amazonaws.com/lib/kinetic-v4.5.4.min' %}",
+        "jquery.hammer": "{% static 'offline/mindmup.s3.amazonaws.com/lib/jquery.hammer.min' %}",
+        "jquery.hotkeys": "{% static 'offline/mindmup.s3.amazonaws.com/lib/jquery.hotkeys' %}",
+        "mm": "{% static 'mm' %}"
+      },
+      waitSeconds: 60 {% if development %} ,
+      urlArgs: "version=" + (new Date()).getTime()
+      {% endif %}
+    });
+    requirejs(
+      ["jquery", "underscore"],
+      function () {
+        requirejs(
+          ["bootstrap", "jquery-ui", "jquery.mousewheel", "color", "jquery.colorPicker", "kinetic", "jquery.hammer", "jquery.hotkeys", "mm"],
+          function () {
+            requirejs(
+              [
+                "{% static ''|join_scripts %}"
+              ],
+              success,
+              failure
+            );
+          },
+          failure
+        );
+      },
+      failure
+    );
+  }
+</script>
