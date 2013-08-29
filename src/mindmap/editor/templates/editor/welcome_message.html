@@ -1,18 +1,7 @@
-{% comment %}
-<%
-  if session['welcome'].nil?
-    session['welcome'] = true
-  elsif settings.online && session['welcome'] != settings.last_news_id 
-    message=%Q{
-    <strong><i class="icon-rss"></i>&nbsp;News flash: #{settings.last_news_title}!</strong> <a href="http://blog.mindmup.com" target="_blank">Click here to read more about it</a>. 
-      }
-    session['welcome'] = settings.last_news_id
-  end
-if ! message.nil? then
-%>
- <div id='welcome_message' data-message='<%=session['welcome']%>' class='alert alert-info'><button type='button' class='close' data-dismiss='alert'>&times;</button>
+{% if request.session.welcome != LAST_NEWS_ID %}
+ <div id='welcome_message' data-message='request.session.welcome' class='alert alert-info'><button type='button' class='close' data-dismiss='alert'>&times;</button>
    <p>
-   <%=message%></p>
+     <strong><i class="icon-rss"></i>&nbsp;News flash: {{ LAST_NEWS_TITLE }}</strong> <a href="http://blog.mindmup.com" target="_blank">Click here to read more about it</a>. 
+   </p>
  </div>
-<% end %>
-{% endcomment %}
+{% endif %}

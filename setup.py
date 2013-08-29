@@ -10,6 +10,7 @@ setup(
 	package_dir = {'': 'src'},
 	install_requires = [
 		'setuptools',
-		'django >= 1.5.2',
+		'django == 1.5.2',
+		'request == 1.2.3',
 	],
 )

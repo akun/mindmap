@@ -164,6 +164,15 @@ LOGGING = {
     }
 }
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+	'django.contrib.messages.context_processors.messages',
+	'django.core.context_processors.request',
+	'django.core.context_processors.media',
+	'django.core.context_processors.static',
+	'mindmap.context_processors.global_consts',
+	'django.core.context_processors.i18n',
+)
+
 # A merged JavaScript name
 # TODO get MD5 by md5sum file
 CACHE_PREVENTION_KEY = '6a735040f0fc0130fb237e584be0a4fc'
