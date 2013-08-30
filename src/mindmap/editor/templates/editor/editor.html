@@ -111,27 +111,27 @@
 
     loadScripts(
       function() {
-        /*MM.main({
-              googleAnalyticsAccount: '<%= settings.google_analytics_account %>',
-              s3Url: 'http://<%= settings.s3_website %>/',
-              s3Folder: '<%= settings.s3_upload_folder %>/',
-              googleClientId: '<%= ENV['GOOGLE_CLIENT_ID'] %>',
-          googleApiKey: '<%= ENV['GOOGLE_SHORTENER_API_KEY'] %>',
-          googleAppId: '<%= ENV['GOOGLE_APP_ID'] %>',
-              publishingConfigUrl: '<%= settings.publishing_config_url %>',
-              baseUrl: '<%= settings.base_url%>',
-              proxyLoadUrl: '<%= settings.proxy_load_url %>',
-              scriptsToLoadAsynchronously: '<%= settings.async_scripts %>',
-              networkTimeoutMillis: <%= settings.network_timeout_millis %>,
-          userCohort: '<%= user_cohort %>',
-          cachePreventionKey: '<%= settings.cache_prevention_key %>'
-        });*/
+        MM.main({
+              googleAnalyticsAccount: '',
+              s3Url: '',
+              s3Folder: '',
+              googleClientId: '',
+          googleApiKey: '',
+          googleAppId: '',
+              publishingConfigUrl: '',
+              baseUrl: '',
+              proxyLoadUrl: '',
+              scriptsToLoadAsynchronously: '',
+              networkTimeoutMillis: 0,
+          userCohort: '',
+          cachePreventionKey: ''
+        });
       },
       function (err) {
-        /*var d=document.createElement("div"),
+        var d=document.createElement("div"),
             c=document.createElement('div'),
             tryToNotifyGoogleAnalytics=function(){
-              _gaq.push(['_setAccount', '<%= settings.google_analytics_account %>']);
+              _gaq.push(['_setAccount', '']);
               _gaq.push(['_trackEvent','Error','Script Load', err && err.message]);
               (function() {
                 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -148,7 +148,7 @@
         c.style.position='absolute'; c.style.top=0; c.style.left=0; c.style.width='100%'; c.style.height='100%'; c.style.minHeight='100%'; c.style.backgroundColor='#999999';
         c.appendChild(d);
         document.getElementsByTagName("body")[0].appendChild(c);
-        tryToNotifyGoogleAnalytics();*/
+        tryToNotifyGoogleAnalytics();
       }
     );
   </script>
