@@ -3225,7 +3225,7 @@ jQuery.fn.mapWidget = function (activityLog, mapModel, touchEnabled, imageRender
 			hotkeyEventHandlers = {
 				'return': 'addSiblingIdea',
 				'del backspace': 'removeSubIdea',
-				'tab': 'addSubIdea',
+				'insert': 'addSubIdea',
 				'left': 'selectNodeLeft',
 				'up': 'selectNodeUp',
 				'right': 'selectNodeRight',
@@ -3236,7 +3236,7 @@ jQuery.fn.mapWidget = function (activityLog, mapModel, touchEnabled, imageRender
 				'p meta+v ctrl+v': 'paste',
 				'y meta+c ctrl+c': 'copy',
 				'u meta+z ctrl+z': 'undo',
-				'shift+tab': 'insertIntermediate',
+				'shift+insert': 'insertIntermediate',
 				'Esc 0 meta+0 ctrl+0': 'resetView',
 				'r meta+shift+z ctrl+shift+z meta+y ctrl+y': 'redo',
 				'meta+plus ctrl+plus z': 'scaleUp',

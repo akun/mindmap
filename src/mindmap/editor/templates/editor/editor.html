@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -39,9 +40,9 @@
               </div>
 
               <div class="btn-group">
-                <button id="menuAdd" rel="tooltip" data-placement="bottom" data-title="Add child (Tab)" data-category="Toolbar Click" data-event-type="Add idea" class="btn addSubIdea"><i class="icon-signout" ></i></button>
+                <button id="menuAdd" rel="tooltip" data-placement="bottom" data-title="{% trans 'Add child' %} (Insert)" data-category="Toolbar Click" data-event-type="Add idea" class="btn addSubIdea"><i class="icon-signout" ></i></button>
                 <button id="menuInsertSibling" rel="tooltip" data-placement="bottom" data-title="Insert sibling (Enter)" data-category="Toolbar Click" data-event-type="Insert Sibling" class="btn  addSiblingIdea"><i class="icon-download-alt" ></i></button>
-                <button id="menuInsertIntermediate" rel="tooltip" data-placement="bottom" data-title="Insert parent (Shift+Tab)" data-category="Toolbar Click" data-event-type="Insert Intermediate" class="btn  insertIntermediate"><i class="icon-signin" ></i></button>
+                <button id="menuInsertIntermediate" rel="tooltip" data-placement="bottom" data-title="{% trans 'Add parent' %} (Shift+Insert)" data-category="Toolbar Click" data-event-type="Insert Intermediate" class="btn  insertIntermediate"><i class="icon-signin" ></i></button>
               </div>
               <div class="btn-group">
                 <button id="menuEdit" rel="tooltip" data-placement="bottom" data-title="Edit node (Spacebar)" data-category="Toolbar Click" data-event-type="Edit idea" class="btn  editNode"><i class="icon-pencil"></i></button>

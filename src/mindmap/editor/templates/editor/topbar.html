@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <div id="topbar" class="navbar navbar-fixed-top navbar">
   <div class="navbar-inner">
     <div>
@@ -89,9 +91,9 @@
 
             <li class="divider hidden-phone"></li>
 
-            <li rel="tooltip" data-mm-context-menu="Insert" data-title="Tab"><a data-category="Top Bar" data-event-type="Add idea" class="addSubIdea"><i class="icon-signout" ></i>&nbsp;Add Child</a></li>
+            <li rel="tooltip" data-mm-context-menu="Insert" data-title="Insert"><a data-category="Top Bar" data-event-type="Add idea" class="addSubIdea"><i class="icon-signout" ></i>&nbsp;{% trans 'Add Child' %}</a></li>
             <li class="hidden-phone-landscape" rel="tooltip" data-mm-context-menu="Insert" data-title="Enter"><a data-category="Top Bar" data-event-type="Insert Sibling" class="addSiblingIdea"><i class="icon-download-alt" ></i>&nbsp;Add Sibling</a></li>
-            <li class="hidden-phone-landscape" data-mm-context-menu="Insert" rel="tooltip" data-title="Shift+Tab"><a data-category="Top Bar" data-event-type="Insert Intermediate" class="insertIntermediate"><i class="icon-signin" ></i>&nbsp;Add Parent</a></li>
+            <li class="hidden-phone-landscape" data-mm-context-menu="Insert" rel="tooltip" data-title="Shift+Insert"><a data-category="Top Bar" data-event-type="Insert Intermediate" class="insertIntermediate"><i class="icon-signin" ></i>&nbsp;{% trans 'Add Parent' %}</a></li>
             <li rel="tooltip" data-mm-context-menu data-title="Backspace"><a data-category="Top Bar" data-event-type="Delete idea" class="removeSubIdea"><i class="icon-remove"></i>&nbsp;Delete</a></li>
 
             <li class="divider hidden-phone"></li>
