@@ -1453,7 +1453,7 @@ MAPJS.MapModel = function (layoutCalculator, titlesToRandomlyChooseFrom, interme
 			return false;
 		}
 		var title = currentlySelectedIdea().title;
-		if (title === 'Press Space or double-click to edit' || intermediaryTitlesToRandomlyChooseFrom.indexOf(title) !== -1 || titlesToRandomlyChooseFrom.indexOf(title) !== -1) {
+		if (title === 'Press F2 or double-click to edit' || intermediaryTitlesToRandomlyChooseFrom.indexOf(title) !== -1 || titlesToRandomlyChooseFrom.indexOf(title) !== -1) {
 			shouldSelectAll = true;
 		}
 		self.dispatchEvent('nodeEditRequested', currentlySelectedIdeaId, shouldSelectAll, !!editingNew);
@@ -3230,7 +3230,7 @@ jQuery.fn.mapWidget = function (activityLog, mapModel, touchEnabled, imageRender
 				'up': 'selectNodeUp',
 				'right': 'selectNodeRight',
 				'down': 'selectNodeDown',
-				'space': 'editNode',
+				'f2': 'editNode',
 				'shift+up': 'toggleCollapse',
 				'c meta+x ctrl+x': 'cut',
 				'p meta+v ctrl+v': 'paste',

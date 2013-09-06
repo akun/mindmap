@@ -1,6 +1,6 @@
 /*global MM, jQuery, MAPJS, _*/
 MM.Maps = {};
-MM.Maps['default'] = MM.Maps['new'] = {'title': 'Press Space or double-click to edit', 'id': 1};
+MM.Maps['default'] = MM.Maps['new'] = {'title': 'Press F2 or double-click to edit', 'id': 1};
 
 MM.EmbeddedMapSource = function () {
 	'use strict';
